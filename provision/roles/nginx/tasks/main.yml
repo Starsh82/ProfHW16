@@ -1,0 +1,13 @@
+---
+
+- name: "Install nginx in Debian-based"
+  vars:
+    nginx_listen_port: 8080
+  ansible.builtin.include_tasks: nginx.yml
+  tags: install
+  when: ansible_os_family not in ['RedHat', 'Rocky']
+
+# - name: "Install Red hat based"
+#   ansible.builtin.include_tasks: install-centos.yml
+#   tags: install
+#   when: ansible_os_family in ['RedHat', 'Rocky']
